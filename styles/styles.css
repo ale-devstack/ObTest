@@ -1,0 +1,115 @@
+/* ========== Fuentes ========== */
+
+@font-face {
+    font-family: "Gabarito";
+    src: url(/OrangeBee/styles/fonts/Gabarito/Gabarito-VariableFont_wght.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ========== Variables ========== */
+
+
+:root {
+    --bee: #ff5500;          /* Naranja marca */
+    --bee-2: #ff4a00;        /* Naranja rojizo para acentos */
+    --bg: #000000;           /* Fondo principal */
+    --card: rgba(17,17,17,.92);
+    --text: #ffffff;
+    --muted: rgba(255,255,255,.75);
+    --ring: rgba(255,106,0,.35);
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(0,0,0,.45);
+  }
+
+/* ========== Estilos Generales ========== */
+
+* {
+    box-sizing:border-box
+  }
+  
+  html,
+  body {
+    height:100%
+  }
+
+  body {
+    margin:0;  
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--text); 
+    background: var(--bg); 
+    line-height:1.6; 
+    overflow-x:hidden;
+  }
+
+
+/* ========== Header ========== */
+
+.container { 
+    max-width:1160px; 
+    margin-inline:auto; 
+    padding-inline:20px; 
+    position:relative; 
+    z-index:1;  
+  }
+
+  header {
+    position:sticky; 
+    top:0; 
+    z-index:5; 
+    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,.6); 
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+
+  .nav { 
+    display:flex; 
+    align-items:center; 
+    justify-content:space-between; 
+    padding:16px 20px; 
+  }
+  
+  .brand { 
+    color:var(--bee); 
+    font-weight:800; 
+    letter-spacing:.2px; 
+    font-size:1.25rem; 
+    display:flex; 
+    align-items:center; 
+    gap:10px; 
+  }
+
+  .brand svg { 
+    width:22px; 
+    height:22px; 
+    stroke:var(--bee); 
+  }
+  
+  nav a { 
+    color:#fff; 
+    text-decoration:none; 
+    margin-left:24px; 
+    font-weight:700; 
+    opacity:.95; 
+  }
+  
+  nav a:hover { 
+    color:var(--bee);
+  }
+
+  .btn { 
+    display:inline-block; 
+    border-radius:999px; 
+    padding:12px 20px; 
+    background:var(--bee); 
+    color:#fff; 
+    font-weight:800; 
+    border:none; 
+    cursor:pointer; 
+    box-shadow: var(--shadow); 
+  }
+
+  .btn:is(:hover,:focus-visible) {
+     filter:brightness(1.05); 
+     transform: translateY(-1px); 
+    }
