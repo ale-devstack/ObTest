@@ -431,7 +431,7 @@ header.scrolled {
     height: auto;
     min-height: 70vh; 
     background: url("/ObTest/img/handshake_mobile.png") no-repeat center center;
-    background-size: cover; /* evita zoom */
+    background-size: contain; /* evita zoom */
     padding: 2rem 1rem;
   }
 }
