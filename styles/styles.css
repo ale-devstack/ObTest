@@ -7,7 +7,6 @@
   font-display: swap;
 }
 
-
 /* ========== Variables ========== */
 
 :root {
@@ -45,8 +44,7 @@ body {
   min-height: 2500px; /* Para probar el scroll */
 }
 
-
- /* ========== Header ========== */
+/* ========== Header ========== */
 
 .nav-container { 
   max-width: var(--max-width);
@@ -190,158 +188,6 @@ body {
   transform-origin: center;
 }
 
-/* ========== Responsive Design ========== */
-
-@media (max-width: 768px) {
-  .nav-container {
-      padding: 0 1rem;
-  }
-
-  .navbar {
-      padding: 0.75rem 0;
-  }
-
-  .brand {
-      font-size: 1.4rem;
-  }
-
-  .brand img {
-      height: 35px;
-  }
-
-  /* Show hamburger menu */
-  .menu-label {
-      display: flex;
-  }
-
-  /* Hide desktop menu */
-  .nav-menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.98);
-      backdrop-filter: blur(20px);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-      z-index: 1000;
-      
-      /* Hidden by default */
-      opacity: 0;
-      visibility: hidden;
-     /* transform: translateY(-100%);
-      transition: var(--transition);*/
-  }
-
-  /* Show menu when checkbox is checked */
-  .menu-toggle:checked ~ .nav-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-  }
-
-  /* Animate hamburger when checked */
-  .menu-toggle:checked + .menu-label .hamburger-line:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-      background: var(--bee);
-  }
-
-  .menu-toggle:checked + .menu-label .hamburger-line:nth-child(2) {
-      opacity: 0;
-  }
-
-  .menu-toggle:checked + .menu-label .hamburger-line:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
-      background: var(--bee);
-  }
-
-  /* Mobile menu links - siempre blancos */
-  .nav-menu .nav-link {
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: 600;
-      text-align: center;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      min-width: 200px;
-      transition: var(--transition);
-  }
-
-  .nav-menu .nav-link::after {
-      display: none;
-  }
-
-  .nav-menu .nav-link:hover {
-      background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.05);
-  }
-
-  .nav-menu .nav-link.cta-button {
-      background: var(--bee);
-      color: #000000;
-      margin-left: 0;
-      margin-top: 1rem;
-      padding: 1rem 2rem;
-      border-radius: 30px;
-      font-weight: 700;
-  }
-
-  .nav-menu .nav-link.cta-button:hover {
-      background: var(--bee-hover);
-      color: #000000;
-      box-shadow: 0 6px 20px rgba(255, 85, 0, 0.5);
-  }
-
-  .nav-link {
-      position: relative;
-  }
-}
-
-@media (max-width: 480px) {
-  .nav-container {
-      padding: 0 0.5rem;
-  }
-
-  .brand {
-      font-size: 1.3rem;
-  }
-
-  .brand img {
-      height: 32px;
-  }
-
-  .nav-menu .nav-link {
-      font-size: 1rem;
-      min-width: 180px;
-  }
-}
-
-
-/* ========== Accessibility ========== */
-  @media (prefers-reduced-motion: reduce) {
-      * {
-          animation-duration: 0.03ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.03ms !important;
-      }
-  }
-
-  .nav-link:focus,
-  .mobile-menu-toggle:focus {
-      outline: 2px solid var(--bee);
-      outline-offset: 2px;
-      border-radius: var(--radius);
-  }
-
-   /* Focus trap for menu when open */
-   .menu-toggle:focus + .menu-label {
-    outline: 2px solid var(--bee);
-    outline-offset: 2px;
-    border-radius: var(--radius);
-}
 /* ===== Hero Section ===== */
 #hero {
   height: 100vh;
@@ -358,12 +204,14 @@ body {
   background: rgba(0,0,0,0.5);
   padding: 2rem 3rem;
   border-radius: var(--radius);
+  max-width: 90%;
 }
 
 #hero h1 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 #hero p {
@@ -390,32 +238,276 @@ header.scrolled {
   border-bottom: 2px solid var(--border);
 }
 
+/* ========== Responsive Design ========== */
 
-/* ===== Responsive Hero ===== */
-@media (max-width: 768px) {
+/* Tablet landscape */
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 0.5rem 1.25rem;
+  }
+  
+  .nav-menu {
+    gap: 1.5rem;
+  }
+  
+  .brand {
+    font-size: 1.6rem;
+  }
+  
+  .brand img {
+    height: 40px;
+  }
   
   #hero h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+  
+  #hero p {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablet portrait */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+  }
+
+  .brand img {
+    height: 38px;
+  }
+
+  /* Navbar negro en móvil */
+  header {
+    position: static;
+    background: rgba(0, 0, 0, 1);
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* Show hamburger menu */
+  .menu-label {
+    display: flex;
+  }
+
+  /* Hide desktop menu */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1000;
+    padding-top: 6rem;
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Show menu when checkbox is checked */
+  .menu-toggle:checked ~ .nav-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Animate hamburger when checked */
+  .menu-toggle:checked + .menu-label .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    background: var(--bee);
+  }
+
+  .menu-toggle:checked + .menu-label .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked + .menu-label .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+    background: var(--bee);
+  }
+
+  /* Mobile menu links */
+  .nav-menu .nav-link {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    min-width: 200px;
+    transition: var(--transition);
+  }
+
+  .nav-menu .nav-link::after {
+    display: none;
+  }
+
+  .nav-menu .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+    color: var(--bee);
+  }
+
+  .nav-menu .nav-link.cta-button {
+    background: var(--bee);
+    color: #000000;
+    margin-left: 0;
+    margin-top: 1rem;
+    padding: 0.875rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .nav-menu .nav-link.cta-button:hover {
+    background: var(--bee-hover);
+    color: #000000;
+    box-shadow: 0 6px 20px rgba(255, 85, 0, 0.4);
+    transform: scale(1.05);
+  }
+
+  /* Hero responsive */
+  #hero {
+    background: url("/ObTest/img/handshake_mobile.png") no-repeat center top;
+    background-size: contain;
+    background-color: var(--bg);
+    min-height: 100vh;
+    padding: 1rem 1rem 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 0;
+  }
+  
+  .hero-overlay {
+    padding: 2rem 1.5rem;
+    max-width: 95%;
+  }
+
+  #hero h1 {
+    font-size: 2.25rem;
+  }
+
+  #hero p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile large */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 0.75rem;
+  }
+
+  .brand {
+    font-size: 1.4rem;
+  }
+
+  .brand img {
+    height: 35px;
+  }
+
+  /* Navbar negro en móvil */
+  header {
+    position: static;
+    background: rgba(0, 0, 0, 1);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .nav-menu {
+    gap: 1.5rem;
+  }
+
+  .nav-menu .nav-link {
+    font-size: 1.1rem;
+    min-width: 180px;
+    padding: 0.65rem 1.5rem;
+  }
+
+  .nav-menu .nav-link.cta-button {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  /* Hero mobile */
+  #hero {
+    background: url("/ObTest/img/handshake_mobile.png") no-repeat center top;
+    background-size: contain;
+    background-color: var(--bg);
+    min-height: 100vh;
+    padding: 1rem 0.75rem 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 0;
+  }
+  
+  .hero-overlay {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+  }
+
+  #hero h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
   }
 
   #hero p {
     font-size: 1rem;
   }
-
-  .hero-overlay {
-    padding: 1.5rem;
-  }
-
-  #hero {
-    height: auto; /* deja que crezca según contenido */
-    min-height: 80vh; /* ocupa buena parte de la pantalla */
-    background-size: cover; /* mantiene proporción */
-    padding: 3rem 1.5rem;
-  }
-
 }
 
-@media (max-width: 480px) {
+/* Mobile small */
+@media (max-width: 360px) {
+  .nav-container {
+    padding: 0 0.5rem;
+  }
+  
+  .brand {
+    font-size: 1.3rem;
+  }
+
+  .brand img {
+    height: 32px;
+  }
+
+  /* Navbar negro en móvil */
+  header {
+    position: static;
+    background: rgba(0, 0, 0, 1);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .nav-menu .nav-link {
+    font-size: 1rem;
+    min-width: 160px;
+  }
+
+  /* Hero mobile small */
+  #hero {
+    padding: 1rem 0.75rem 2rem;
+  }
+
+  .hero-overlay {
+    padding: 1.25rem 0.75rem;
+  }
+
   #hero h1 {
     font-size: 1.5rem;
   }
@@ -423,15 +515,30 @@ header.scrolled {
   #hero p {
     font-size: 0.9rem;
   }
+}
 
-  .hero-overlay {
-    padding: 1rem;
+/* ========== Accessibility ========== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-    #hero {
-    height: auto;
-    min-height: 70vh; 
-    background: url("/ObTest/img/handshake_mobile.png") no-repeat center center;
-    background-size: contain; /* evita zoom */
-    padding: 2rem 1rem;
+  
+  html {
+    scroll-behavior: auto;
   }
+}
+
+.nav-link:focus,
+.menu-label:focus {
+  outline: 2px solid var(--bee);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+.menu-toggle:focus + .menu-label {
+  outline: 2px solid var(--bee);
+  outline-offset: 2px;
+  border-radius: var(--radius);
 }
