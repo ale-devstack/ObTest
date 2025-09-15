@@ -1,6 +1,6 @@
 /* ========== Fuentes ========== */
 
- @font-face {
+@font-face {
   font-family: 'Gabarito';
   src: url('/ObTest/styles/fonts/Gabarito/Gabarito-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
@@ -42,21 +42,11 @@ body {
   background: var(--bg);
   line-height: 1.6;
   overflow-x: hidden;
-  min-height: 100vh;
+  min-height: 2500px;
 }
 
 
  /* ========== Header ========== */
-
-header {
-  position:sticky; 
-  top:0; 
-  z-index:1000; 
-  background: var(--backdrop);
-  border-bottom: 2px solid var(--border);
-  transition: var(--transition);
-  backdrop-filter: blur(10px);
-}
 
 .nav-container { 
   max-width: var(--max-width);
@@ -134,20 +124,6 @@ header {
   transition: var(--transition);
 }
 
-/*   barras ananjadas debajo del menú
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--bee), var(--bee-hover));
-  transition: var(--transition);
-}
-*/
-
 .nav-link:hover {
   color: var(--bee);
   transform: translateY(-1px);
@@ -204,14 +180,20 @@ header {
   position: relative;
 }
 
+/* Hamburguesa negra al inicio */
 .hamburger-line {
   width: 24px;
   height: 2px;
-  background: var(--text);
+  background: #000;
   margin: 3px 0;
   transition: var(--transition);
   border-radius: 2px;
   transform-origin: center;
+}
+
+/* Hamburguesa blanca al hacer scroll */
+header.scrolled .hamburger-line {
+  background: #fff;
 }
 
 /* ========== Responsive Design ========== */
@@ -282,8 +264,9 @@ header {
       background: var(--bee);
   }
 
-  /* Mobile menu links */
+  /* Mobile menu links - siempre blancos */
   .nav-menu .nav-link {
+      color: #fff;
       font-size: 1.5rem;
       font-weight: 600;
       text-align: center;
@@ -318,15 +301,6 @@ header {
       box-shadow: 0 6px 20px rgba(255, 85, 0, 0.5);
   }
 
-  /* Staggered animation effect removed for cleaner mobile experience 
-  .nav-menu .nav-item:nth-child(1) .nav-link,
-  .nav-menu .nav-item:nth-child(2) .nav-link,
-  .nav-menu .nav-item:nth-child(3) .nav-link,
-  .nav-menu .nav-item:nth-child(4) .nav-link {
-      transition-delay: 0s;
-  } */
-
-  /* Close menu when link is clicked (using :target) */
   .nav-link {
       position: relative;
   }
@@ -373,4 +347,100 @@ header {
     outline: 2px solid var(--bee);
     outline-offset: 2px;
     border-radius: var(--radius);
+}
+/* ===== Hero Section ===== */
+#hero {
+  height: 100vh;
+  width: 100%;
+  background: url("/ObTest/img/hero-img.png") no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0,0,0,0.5);
+  padding: 2rem 3rem;
+  border-radius: var(--radius);
+}
+
+#hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+#hero p {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+/* ===== Navbar transparente ===== */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0);
+  border-bottom: none;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* ===== Navbar negro al hacer scroll ===== */
+header.scrolled {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 2px solid var(--border);
+}
+
+/* ===== Nav links: negros al inicio, blancos con scroll ===== */
+header .nav-link {
+  color: #000; /* inicio */
+  transition: color 0.3s ease;
+}
+
+header .nav-link.cta-button {
+  background: var(--bee);
+  color: #000;
+}
+
+header.scrolled .nav-link {
+  color: #fff; /* al hacer scroll */
+}
+
+header.scrolled .nav-link.cta-button {
+  background: var(--bee);
+  color: #000;
+}
+
+/* ===== Responsive Hero ===== */
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero p {
+    font-size: 1rem;
+  }
+
+  .hero-overlay {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 1.5rem;
+  }
+
+  #hero p {
+    font-size: 0.9rem;
+  }
+
+  .hero-overlay {
+    padding: 1rem;
+  }
 }
