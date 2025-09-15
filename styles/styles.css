@@ -42,7 +42,7 @@ body {
   background: var(--bg);
   line-height: 1.6;
   overflow-x: hidden;
-  min-height: 2500px;
+  min-height: 2500px; /* Para probar el scroll */
 }
 
 
@@ -67,7 +67,7 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--bee);
   text-decoration: none;
@@ -126,7 +126,7 @@ body {
 
 .nav-link:hover {
   color: var(--bee);
-  transform: translateY(-1px);
+  transform: translateY(-1.5px);
 }
 
 .nav-link:hover::after {
@@ -145,7 +145,7 @@ body {
 
 .nav-link.cta-button {
   background: var(--bee);
-  color: #000000;
+  color: rgba(0, 0, 0, .7);
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
   font-weight: 600;
@@ -180,20 +180,14 @@ body {
   position: relative;
 }
 
-/* Hamburguesa negra al inicio */
 .hamburger-line {
   width: 24px;
   height: 2px;
-  background: #000;
+  background: #fff;
   margin: 3px 0;
   transition: var(--transition);
   border-radius: 2px;
   transform-origin: center;
-}
-
-/* Hamburguesa blanca al hacer scroll */
-header.scrolled .hamburger-line {
-  background: #fff;
 }
 
 /* ========== Responsive Design ========== */
@@ -208,7 +202,7 @@ header.scrolled .hamburger-line {
   }
 
   .brand {
-      font-size: 1.25rem;
+      font-size: 1.4rem;
   }
 
   .brand img {
@@ -238,8 +232,8 @@ header.scrolled .hamburger-line {
       /* Hidden by default */
       opacity: 0;
       visibility: hidden;
-      transform: translateY(-100%);
-      transition: var(--transition);
+     /* transform: translateY(-100%);
+      transition: var(--transition);*/
   }
 
   /* Show menu when checkbox is checked */
@@ -312,7 +306,7 @@ header.scrolled .hamburger-line {
   }
 
   .brand {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
   }
 
   .brand img {
@@ -384,7 +378,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, .85);
   border-bottom: none;
   transition: background 0.3s ease, border 0.3s ease;
 }
@@ -392,32 +386,14 @@ header {
 /* ===== Navbar negro al hacer scroll ===== */
 header.scrolled {
   position: fixed;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 1);
   border-bottom: 2px solid var(--border);
 }
 
-/* ===== Nav links: negros al inicio, blancos con scroll ===== */
-header .nav-link {
-  color: #000; /* inicio */
-  transition: color 0.3s ease;
-}
-
-header .nav-link.cta-button {
-  background: var(--bee);
-  color: #000;
-}
-
-header.scrolled .nav-link {
-  color: #fff; /* al hacer scroll */
-}
-
-header.scrolled .nav-link.cta-button {
-  background: var(--bee);
-  color: #000;
-}
 
 /* ===== Responsive Hero ===== */
 @media (max-width: 768px) {
+  
   #hero h1 {
     font-size: 2rem;
   }
@@ -429,6 +405,14 @@ header.scrolled .nav-link.cta-button {
   .hero-overlay {
     padding: 1.5rem;
   }
+
+  #hero {
+    height: auto; /* deja que crezca según contenido */
+    min-height: 80vh; /* ocupa buena parte de la pantalla */
+    background-size: cover; /* mantiene proporción */
+    padding: 3rem 1.5rem;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -442,5 +426,12 @@ header.scrolled .nav-link.cta-button {
 
   .hero-overlay {
     padding: 1rem;
+  }
+    #hero {
+    height: auto;
+    min-height: 70vh; 
+    background: url("/ObTest/img/handshake_mobile.png") no-repeat center center;
+    background-size: cover; /* evita zoom */
+    padding: 2rem 1rem;
   }
 }
